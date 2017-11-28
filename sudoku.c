@@ -27,10 +27,10 @@ bool is_valid_cell(char **board, int x, int y, int boardRowSize, int boardColSiz
         }
     }
     // check box
-    int x_min = (x > 0) ? x - 1 : x;
-    int x_max = (x < boardRowSize - 1) ? x + 1 : x;
-    int y_min = (y > 0) ? y - 1 : y;
-    int y_max = (y < boardColSize - 1) ? y + 1 : y;
+    int x_min = x > 0 ? x - 1 : x;
+    int x_max = x < boardRowSize - 1 ? x + 1 : x;
+    int y_min = y > 0 ? y - 1 : y;
+    int y_max = y < boardColSize - 1 ? y + 1 : y;
     for (int x_prime = x_min; x_prime <= x_max; x_prime++) {
         for (int y_prime = y_min; y_prime <= y_max; y_prime++) {
             if ((x_prime == x) && (y_prime == y)) {
