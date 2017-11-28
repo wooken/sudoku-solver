@@ -4,7 +4,7 @@ binaries = a.out sudoku
 sudoku: sudoku.o
 
 run:
-	./sudoku
+	@./sudoku
 
 clean:
 	rm -f *.o $(binaries)
