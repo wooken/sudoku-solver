@@ -3,7 +3,7 @@ binaries = a.out sudoku
 
 sudoku: sudoku.o
 
-run:
+run: sudoku
 	@./sudoku
 
 clean:
