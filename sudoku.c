@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include "sudoku.h"
 
 void solveSudoku(char** board, int boardRowSize, int boardColSize) {
 }
