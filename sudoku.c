@@ -1,8 +1,46 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 void solveSudoku(char** board, int boardRowSize, int boardColSize) {
+}
+
+bool is_valid_cell(char **board, int x, int y, int boardRowSize, int boardColSize, char val) {
+    // check row
+    for (int col = 0; col < boardRowSize; col++) {
+        if (col == y) {
+            continue;
+        }
+        if (board[x][col] == val) {
+            return false;
+        }
+    }
+    // check column
+    for (int row = 0; row < boardColSize; row++) {
+        if (row == x) {
+            continue;
+        }
+        if (board[row][y] == val) {
+            return false;
+        }
+    }
+    // check box
+    int x_min = (x > 0) ? x - 1 : x;
+    int x_max = (x < boardRowSize - 1) ? x + 1 : x;
+    int y_min = (y > 0) ? y - 1 : y;
+    int y_max = (y < boardColSize - 1) ? y + 1 : y;
+    for (int x_prime = x_min; x_prime <= x_max; x_prime++) {
+        for (int y_prime = y_min; y_prime <= y_max; y_prime++) {
+            if ((x_prime == x) && (y_prime == y)) {
+                continue;
+            }
+            if (board[x_prime][y_prime] == val) {
+                return false;
+            }
+        }
+    }
+    return true;
 }
 
 void print_board(char **board, int boardRowSize, int boardColSize) {
