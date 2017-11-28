@@ -52,16 +52,16 @@ void print_board(char **board, int boardRowSize, int boardColSize) {
     }
 }
 
-char **create_board() {
-    char **board = malloc(9 * sizeof(char *));
-    for (int i = 0; i < 9; i++) {
-        board[i] = malloc(9 * sizeof(char));
+char **create_board(int boardRowSize, int boardColSize) {
+    char **board = malloc(boardRowSize * sizeof(char *));
+    for (int i = 0; i < boardRowSize; i++) {
+        board[i] = malloc(boardColSize * sizeof(char));
     }
     return board;
 }
 
 int main(int argc, char *argv[]) {
-    char **puzzle = create_board();
+    char **puzzle = create_board(9, 9);
     strncpy(puzzle[0], "..9748...", 9);
     strncpy(puzzle[1], "7........", 9);
     strncpy(puzzle[2], ".2.1.9...", 9);
@@ -72,7 +72,7 @@ int main(int argc, char *argv[]) {
     strncpy(puzzle[7], "........6", 9);
     strncpy(puzzle[8], "...2759..", 9);
 
-    char **answer = create_board();
+    char **answer = create_board(9, 9);
     strncpy(answer[0], "519748632", 9);
     strncpy(answer[1], "783652419", 9);
     strncpy(answer[2], "426139875", 9);
